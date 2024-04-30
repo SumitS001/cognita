@@ -152,6 +152,7 @@ class MultiModalParser(BaseParser):
         }
 
         response = await self._send_request(payload)
+        print(f"VLM Response: {response}")
         if "choices" in response:
             return {"response": response["choices"][0]["message"]["content"]}
         if "error" in response:
